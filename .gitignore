@@ -21,8 +21,8 @@ wheels/
 *.egg
 MANIFEST
 #Eclipse stuff
-#.metadata
-#.project
-#.pydevproject
-#.pydevproject.bak
+.metadata
+.project
+.pydevproject
+.pydevproject.bak
 
