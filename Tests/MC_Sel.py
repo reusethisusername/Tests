@@ -32,20 +32,31 @@ def openSite(url):
     browser.get(url)
     browser.maximize_window()
 
-    # Log in
+    # login
     u = browser.find_element_by_css_selector('#username')
     u.clear()
-    u.send_keys('noname@bogusmail.com')
+    u.send_keys('test@mail.com')
     p = browser.find_element_by_css_selector('#password')
     p.clear()
-    p.send_keys('pass')  # or use getpass()
+    p.send_keys('test')  # or use getpass()
     b = browser.find_element_by_css_selector('#_submit')
     b.click()
-    assert "Overview" in browser.title
+    assert "Overview" in browser.title, 'Authentication failed'
 
     # go to Entries
     browser.find_element_by_css_selector('#app-menu-navbar-collapse > ul > li.app-menu-booking > a').click()
-    assert "app_booking_list_page" in browser.page_source
+    assert "app_booking_list_page" in browser.page_source, 'Couldn\'t navigate to Entries section'
+
+    # TODO: move this under a function to loop through
+    # navigate to month
+    #   browser.find_element_by_class_name('month-list-headline').click()
+    # c=browser.find_element_by_class_name('mc-month-carousel')
+    # c.click()
+
+    ym='2017-01'
+    browser.get('https://primoco.me/app/booking/?month='+ym)
+
+    #TODO: entry data routine
 
 
 def main():
