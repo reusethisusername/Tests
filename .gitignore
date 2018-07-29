@@ -25,4 +25,4 @@ MANIFEST
 .project
 .pydevproject
 .pydevproject.bak
-
+.idea/
